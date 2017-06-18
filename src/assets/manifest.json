@@ -1,0 +1,14 @@
+{
+  "name": "Patrick Emery's Portfolio",
+  "short_name": "Portfolio",
+  "start_url": "/index.html",
+  "scope": "/index.html",
+  "display": "standalone",
+  "background_color": "#DDDDDD",
+  "theme_color": "#222222",
+  "icons": [{
+    "src": "images/icons/PortfolioIcon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
