@@ -4,12 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#222222">
-  <title>Pat Emery</title>
-  <!-- Web Manifest -->
-  <link rel="manifest" href="../assets/manifest.json">
-  <meta name="msapplication-TileColor" content="#2F3BA2">
-  <script src="../assets/service-worker.js"></script>
 </head>
 <body>
 
@@ -40,19 +34,6 @@
   </div>
 
 </body>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('../assets/service-worker.js').then(function(registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      });
-    });
-  }
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 </html>
