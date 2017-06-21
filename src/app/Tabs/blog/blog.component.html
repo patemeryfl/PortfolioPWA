@@ -1,14 +1,26 @@
-<div id="content-creator">
-  <label>Title</label><br/>
-  <input type="text" placeholder="Title" name="title" id="title" style="width: 100%"><br/>
-  <label>Body</label><br/>
-  <textarea name="body" id="body" rows="5" placeholder="Body Text" style="width: 100%"></textarea><br/>
-  <button id="submit-button">
-    Submit
-  </button>
+<div class="container">
+    <div class="form-group" id="content-creator" style="display: none">
+      <label><p>Title</p></label>
+      <input class="form-control" type="text" placeholder="Title" name="title" id="title"><br/>
+      <label><p>Body</p></label>
+      <textarea class="form-control" name="body" id="body" rows="5" placeholder="Body Text"></textarea><br/>
+      <button id="submit-button" class="btn btn-primary">
+        Submit
+      </button>
+    </div>
 </div>
-
-<hr/>
-
-<div id="content">
+<div class="panel panel-group" style="height:315px; overflow: scroll;">
+  <div id="content">
+    <div class="panel-heading">
+      <p style="margin-top: -30px!important;" id="blogTitle"></p>
+      <p style="margin-top: -30px!important; text-align: right" id="blogDate"></p>
+    </div>
+    <div class="panel-body">
+      <p id="blogContent"></p>
+      <div class="text-center panel-heading">- <a href="#">Share</a>
+        // <a href="#">Comment</a>
+        // <a href="#">Copy</a> -
+      </div>
+    </div>
+  </div>
 </div>

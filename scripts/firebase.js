@@ -6,11 +6,12 @@ var config = {
   storageBucket: "personalportfolio-1ca58.appspot.com",
   messagingSenderId: "350713099700"
 };
+
 firebase.initializeApp(config);
 
-var limit = 3;
+var limit = 1;
 var count = 0;
-var trueData = 2;
+var trueData = 1;
 var flag = true;
 var articles = [];
 
@@ -38,10 +39,10 @@ firebase.database().ref('/article_group/article_list')
       });
   }, function(err) {
     alert(err);
-  })
+  });
 
 function producer() {
-  console.log(count, trueData)
+  console.log(count, trueData);
   if (count === trueData && flag) {
     for (var i in articles) {
       createArticle(articles[i].id, articles[i].published, articles[i].data)
@@ -52,25 +53,27 @@ function producer() {
 
 function showError(err) {
   var el = document.createElement('div');
-  el.innerHTML = err.message
+  el.innerHTML = err.message;
   document.getElementById('content').appendChild(el)
 }
 
 function createArticle(id, published, data) {
-  console.log(id)
-  var el = document.createElement('div');
+  console.log(id);
+  var blog = document.createElement('div');
   var title = document.createElement('h1');
   var body = document.createElement('p');
   var byline = document.createElement('span');
   title.innerHTML = data.title;
   body.innerHTML = data.body;
-  byline.innerHTML = 'id: ' + id + '<br>Date: '+ new Date(published) +'<hr>';
-  el.appendChild(title)
-  el.appendChild(byline)
-  el.appendChild(body)
-  document.getElementById('content').appendChild(el)
+  byline.innerHTML = new Date(published);
+  document.getElementById('blogTitle').appendChild(title);
+  document.getElementById('blogDate').appendChild(byline);
+  document.getElementById('blogContent').appendChild(body);
+
+  document.getElementById('content').appendChild(blog);
 
 }
+
 
 var submitButton = document.querySelector('#submit-button');
 var titleText = document.querySelector('#title');
@@ -79,5 +82,29 @@ var bodyText = document.querySelector('#body');
 submitButton.addEventListener('click', function(){
   var title = titleText.value;
   var body = bodyText.value;
-  console.log(title, body)
+  var articleRef = '/article_group/';
+  var articleData = {
+    title: title,
+    body: body,
+    date_edited: firebase.database.ServerValue.TIMESTAMP,
+    uid: 'user1',
+    slug_name: title.replace(/\s/g, '-')
+  };
+  var key = firebase.database().ref(articleRef + 'article').push().key;
+
+  var updates = {};
+  updates[articleRef + 'article/' + key] = articleData;
+  updates[articleRef + 'article_list/' + key] = {
+    published: firebase.database.ServerValue.TIMESTAMP
+  };
+
+  return firebase.database().ref().update(updates)
+    .then(function(){
+      alert('Added '+ title);
+    })
+    .catch(function(error) {
+      console.log(error);
+      alert(error.message)
+    });
+
 });

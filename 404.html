@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pat Emery</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron" style="text-align: center">
+    <h1>404 - Page Not Found</h1>
+    <p>It seems as though you have reached a page that does not exist.</p>
+    <div class="btn btn-primary" onclick="goBack()">Go Back</div>
+    <div class="btn btn-danger" onclick="refresh()">Reload Page</div>
+  </div>
+</div>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  function refresh() {
+    location.reload();
+  }
+</script>
+</body>
+</html>

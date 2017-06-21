@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>WebsitePWA</title>
-  <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pat Emery</title>
+  <base href="/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="theme-color" content="#222222">
-  <title>Pat Emery</title>
   <!-- Web Manifest -->
   <link rel="manifest" href="assets/manifest.json">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" async></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
   <app-root>
@@ -22,6 +20,8 @@
     </div>
   </app-root>
 </body>
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script src="../scripts/firebase.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
