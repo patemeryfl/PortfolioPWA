@@ -86,15 +86,17 @@ p {
     display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
   }
   #leftPanel {
-    margin-right: 15px!important;
+   width:100%!important;
   }
   .asidetitle {
     text-align: center;
+    margin-left: -8px;
   }
   #leftPanelContent {
-    margin-top: -160px;
+    text-align: center;
+    margin-top: -140px;
     margin-left: 50% !important;
-    width:150px;
+    width:160px;
   }
   #profilePhoto {
     margin-right:200px;
@@ -188,9 +190,10 @@ textarea {
 /*Social Media Aside Styling*/
 
 #leftPanel p {
+  text-align: center;
   padding-left: 20px;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-left: -10px;
   font-family: 'Lato', sans-serif;
   font-size: 12px;
   line-height: 12px;
@@ -210,6 +213,7 @@ textarea {
 }
 
 #socialmedia {
+  text-align: center;
   margin-top: 6px;
   margin-left: 3px;
   background-color: transparent;

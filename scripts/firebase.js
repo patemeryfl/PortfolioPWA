@@ -60,15 +60,29 @@ function showError(err) {
 function createArticle(id, published, data) {
   console.log(id);
   var blog = document.createElement('div');
+  var blogs = document.createElement('div');
   var title = document.createElement('h1');
   var body = document.createElement('p');
   var byline = document.createElement('span');
   title.innerHTML = data.title;
   body.innerHTML = data.body;
   byline.innerHTML = new Date(published);
+
+  blog.innerHTML =  '<div class="panel-heading">' +
+                    '<p style="margin-top: -30px!important;" id="blogTitle"></p>' +
+                    '<p style="margin-top: -30px!important; text-align: right" id="blogDate"></p>' +
+                    '</div>' +
+                    '<div class="panel-body">' +
+                    '<p id="blogContent"></p>' +
+                    '<div class="text-center panel-heading">- <a href="#">Share</a> // <a href="#">Comment</a> // <a href="#">Copy</a> -' +
+                    '</div>' +
+                    '</div>';
+
   document.getElementById('blogTitle').appendChild(title);
   document.getElementById('blogDate').appendChild(byline);
   document.getElementById('blogContent').appendChild(body);
+
+  blogs.innerHTML = blog;
 
   document.getElementById('content').appendChild(blog);
 
